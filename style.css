@@ -427,7 +427,6 @@ body {
 .beforeAndAfterTitle1 {
     color: var(--primary-yellow);
     position: relative;
-
 }
 
 
@@ -436,6 +435,11 @@ body {
     color: var(--white);
     margin-bottom: 50px;
     position: relative;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .beforeAndAfterTitle2::after {

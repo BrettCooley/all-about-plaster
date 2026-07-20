@@ -670,8 +670,7 @@ body {
 }
 
 .reviewWindow {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    overflow-x: hidden;
     scrollbar-width: none;
     padding: 20px 12.5% 30px;
 

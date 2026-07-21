@@ -141,6 +141,17 @@ const updateReviewActiveStates = () => {
     });
 };
 
+
+/* Dot controls */
+
+reviewDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+        currentReview = index;
+        updateReviewCarousel();
+        startReviewAutoPlay();
+    });
+});
+
 /* Scrolls to the selected card */
 
 const updateReviewCarousel = () => {

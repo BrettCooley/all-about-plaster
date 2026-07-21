@@ -128,8 +128,11 @@ let currentReview = 0;
 let autoPlayReview;
 
 const updateReviewCarousel = () => {
-    reviewTracker.style.transform =
-    `translateX(-${currentReview * 100}%)`;
+    reviewCards[currentReview].scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest"
+    });
 
     reviewDots.forEach((dot,index) => {
         dot.classList.toggle("active", index === currentReview);

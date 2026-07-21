@@ -69,7 +69,7 @@ function startAutoPlay() {
 
     autoPlayInterval = setInterval(() => {
         showNextSlide();
-    }, 5000);
+    }, 10000);
 }
 
 beforeAfterNextButton.addEventListener("click", () => {
@@ -200,7 +200,7 @@ const startReviewAutoPlay = () => {
 
     autoPlayReview = setInterval(() => {
         updateNextReview();
-    }, 5000);
+    }, 10000);
 };
 
 /* Detect manual finger scrolling */

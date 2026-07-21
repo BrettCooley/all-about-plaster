@@ -684,13 +684,11 @@ body {
 
 .reviewTracker {
    width: 100%;
-   transition: ease-in-out 0.5s;
+   transition: transform 0.5s ease-in-out;
+   display: flex;
+   gap: 0px;
 }
 
-.reviewCards {
-    display: flex;
-    gap: 0px;
-}
 
 .Stars {
     margin-bottom: 25px;

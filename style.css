@@ -161,6 +161,8 @@ body {
 
 .hero_page {
     display: grid;
+    min-height: 100svh;
+    overflow: hidden;
 }
 
 .hero_container {
@@ -175,7 +177,8 @@ body {
 .hero_bg img {
     margin-top: 10px;
     width: 100%;
-    min-height: 80svh;
+    object-fit: cover;
+    height: 100%;
 }
 
 .header_fonts {
@@ -436,7 +439,7 @@ body {
     margin-bottom: 50px;
     position: relative;
     width: 100%;
-    max-width: 500px;
+    max-width: 300px;
     display: flex;
     align-items: center;
     justify-content: center;

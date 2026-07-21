@@ -123,15 +123,18 @@ const reviewArrowRight = document.querySelector(".reviewNextButton");
 const reviewTracker = document.querySelector(".reviewTracker");
 const reviewCards = document.querySelectorAll(".reviewCard");
 const reviewDots = document.querySelectorAll(".reviewDots span");
+const reviewWindow = document.querySelector(".reviewWindow");
 
 let currentReview = 0;
 let autoPlayReview;
 
 const updateReviewCarousel = () => {
-    reviewCards[currentReview].scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest"
+    const cardWidth = reviewCards[0].offsetWidth;
+    const gap = 20;
+
+    reviewWindow.scrollTo({
+        left: currentReview * (cardWidth + gap),
+        behavior: "smooth"
     });
 
     reviewDots.forEach((dot,index) => {
@@ -171,7 +174,9 @@ const startReviewAutoPlay = () => {
     
 }
 
-updateReviewCarousel();
+reviewCards[0].classList.add("active");
+reviewDots[0].classList.add("active");
+
 startReviewAutoPlay();
 
 /* Arrow controls */
@@ -184,30 +189,4 @@ reviewArrowRight.addEventListener("click", () => {
 reviewArrowLeft.addEventListener("click", () => {
     updatePrevReview();
     startReviewAutoPlay();
-});
-
-
-let reviewTouchX = 0;
-let reviewTouchEndX = 0;
-
-reviewTracker.addEventListener("touchstart", (event) => {
-    reviewTouchX = event.touches[0].clientX;
-});
-
-reviewTracker.addEventListener("touchend", (event) => {
-    reviewTouchEndX = event.changedTouches[0].clientX;
-
-    const swipeDistance = reviewTouchX - reviewTouchEndX;
-    const minimumSwipeDistance = 50;
-
-    if (swipeDistance > minimumSwipeDistance) {
-        updateNextReview();
-        startReviewAutoPlay();
-    }
-
-    if (swipeDistance < -minimumSwipeDistance) {
-        updatePrevReview();
-        startReviewAutoPlay();
-    }
-
 });

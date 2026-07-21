@@ -676,10 +676,15 @@ body {
 }
 
 .reviewWindow {
-    overflow-x: hidden;
+    overflow-x: auto;
     scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
     padding: 20px 12.5% 30px;
+}
 
+.reviewWindow::-webkit-scrollbar {
+    display: none;
 }
 
 .reviewTracker {

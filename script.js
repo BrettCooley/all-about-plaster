@@ -194,7 +194,7 @@ reviewTracker.addEventListener("touchstart", (event) => {
 reviewTracker.addEventListener("touchend", (event) => {
     reviewTouchEndX = event.changedTouches[0].clientX;
 
-    const swipeDistance = ReviewTouchX - ReviewTouchEndX;
+    const swipeDistance = reviewTouchX - reviewTouchEndX;
     const minimumSwipeDistance = 50;
 
     if (swipeDistance > minimumSwipeDistance) {

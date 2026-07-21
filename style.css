@@ -388,6 +388,7 @@ body {
     align-items: center;
     text-align: center;
     max-width: 200px;
+    
 }
 
 .serviceButton img{
@@ -395,6 +396,11 @@ body {
     margin: 0 auto;
     max-width: 50px;
     max-height: 150px;
+}
+
+.serviceButton:nth-child(4) img {
+    margin-top: 10px;
+    margin-bottom: 4px;
 }
 
 .serviceButton:nth-child(6) {

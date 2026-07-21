@@ -117,10 +117,11 @@ startAutoPlay();
 
 /*----------------------------REVIEWCAROUSEL-------------------------------------------*/
 
+/*----------------------------REVIEW CAROUSEL----------------------------*/
+
 const reviewArrowLeft = document.querySelector(".reviewPrevButton");
 const reviewArrowRight = document.querySelector(".reviewNextButton");
 
-const reviewTracker = document.querySelector(".reviewTracker");
 const reviewCards = document.querySelectorAll(".reviewCard");
 const reviewDots = document.querySelectorAll(".reviewDots span");
 const reviewWindow = document.querySelector(".reviewWindow");
@@ -128,42 +129,60 @@ const reviewWindow = document.querySelector(".reviewWindow");
 let currentReview = 0;
 let autoPlayReview;
 
-const updateReviewCarousel = () => {
-    const cardWidth = reviewCards[0].offsetWidth;
-    const gap = 20;
+/* Updates dots and card opacity */
 
-    reviewWindow.scrollTo({
-        left: currentReview * (cardWidth + gap),
-        behavior: "smooth"
-    });
-
-    reviewDots.forEach((dot,index) => {
+const updateReviewActiveStates = () => {
+    reviewDots.forEach((dot, index) => {
         dot.classList.toggle("active", index === currentReview);
     });
 
-    reviewCards.forEach((card,index) => {
+    reviewCards.forEach((card, index) => {
         card.classList.toggle("active", index === currentReview);
     });
-}
+};
+
+/* Scrolls to the selected card */
+
+const updateReviewCarousel = () => {
+    const selectedCard = reviewCards[currentReview];
+
+    const scrollPosition =
+        selectedCard.offsetLeft -
+        (reviewWindow.clientWidth - selectedCard.offsetWidth) / 2;
+
+    reviewWindow.scrollTo({
+        left: scrollPosition,
+        behavior: "smooth"
+    });
+
+    updateReviewActiveStates();
+};
+
+/* Next review */
 
 const updateNextReview = () => {
-    currentReview ++;
+    currentReview++;
 
-    if(currentReview >= reviewCards.length) {
+    if (currentReview >= reviewCards.length) {
         currentReview = 0;
-
     }
+
     updateReviewCarousel();
-}
+};
+
+/* Previous review */
 
 const updatePrevReview = () => {
-    currentReview --;
-    if(currentReview < 0 ) {
+    currentReview--;
+
+    if (currentReview < 0) {
         currentReview = reviewCards.length - 1;
     }
 
-    updateReviewCarousel ();
-}
+    updateReviewCarousel();
+};
+
+/* Autoplay */
 
 const startReviewAutoPlay = () => {
     clearInterval(autoPlayReview);
@@ -171,12 +190,38 @@ const startReviewAutoPlay = () => {
     autoPlayReview = setInterval(() => {
         updateNextReview();
     }, 5000);
-    
-}
+};
 
-reviewCards[0].classList.add("active");
-reviewDots[0].classList.add("active");
+/* Detect manual finger scrolling */
 
+reviewWindow.addEventListener("scroll", () => {
+    const reviewWindowCentre =
+        reviewWindow.scrollLeft + reviewWindow.clientWidth / 2;
+
+    let closestReview = 0;
+    let closestDistance = Infinity;
+
+    reviewCards.forEach((card, index) => {
+        const cardCentre =
+            card.offsetLeft + card.offsetWidth / 2;
+
+        const distance =
+            Math.abs(reviewWindowCentre - cardCentre);
+
+        if (distance < closestDistance) {
+            closestDistance = distance;
+            closestReview = index;
+        }
+    });
+
+    currentReview = closestReview;
+
+    updateReviewActiveStates();
+});
+
+/* Initial setup */
+
+updateReviewActiveStates();
 startReviewAutoPlay();
 
 /* Arrow controls */

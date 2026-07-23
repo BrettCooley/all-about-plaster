@@ -364,9 +364,12 @@ body {
 .serviceButtons {
     display: grid;
     grid-template-columns: 1fr 1fr ;
-    gap: 10px;
-    align-items: stretch;
+    gap: 15px;
     margin-top: 0 auto;
+    max-width: 500px;
+    margin: auto;
+    
+
     
 }
 
@@ -378,8 +381,7 @@ body {
     padding: 10px;
     border: 1px solid var(--grey);
     box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
-    min-height: 200px;
-    margin: 10px;
+    margin: 0;
 }
 
 .serviceButton p {
@@ -387,7 +389,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    max-width: 200px;
+    max-width: 300px;
     padding: auto;
     min-height: 80px;
     
@@ -434,6 +436,7 @@ body {
 .beforeAndAfterTitle1 {
     color: var(--primary-yellow);
     position: relative;
+    font-size: 0.7rem;
 }
 
 
@@ -448,6 +451,7 @@ body {
     align-items: center;
     justify-content: center;
     white-space: nowrap;
+    font-size: 0.7rem;
 }
 
 .beforeAndAfterTitle2::after {
@@ -482,7 +486,9 @@ body {
     display: grid;
     align-items: center;
     position: relative;
-    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    
 }
 
 .beforeAndAfterTrack {
@@ -503,8 +509,6 @@ body {
     gap: 0;
     max-width: 800px;
     
-
-
 }
 
 .beforeAndAfterCards.active {
@@ -524,7 +528,6 @@ body {
     display: flex;
     flex-direction: column;
     
-    align-items: stretch;
 }
 
 .beforeCard img,
@@ -534,6 +537,7 @@ body {
     object-fit: cover;
     justify-content: center;
     width: 100%;
+    height: 100%;
     
 }
 
@@ -575,6 +579,7 @@ body {
     margin-top: 30px;
     overflow: hidden;
     width: 100%;
+    max-width: 500px;
     height: 10px;
     background-color: var(--white);
     border-radius: 10px;
@@ -716,6 +721,8 @@ body {
     display: grid;
     align-items: center;
     position: relative;
+    max-width: 800px;
+    margin: auto;
 }
 
 .reviewWindow {
@@ -724,6 +731,7 @@ body {
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     padding: 20px 0 30px;
+    width: 100%;
 }
 
 .reviewWindow::-webkit-scrollbar {
@@ -758,11 +766,10 @@ body {
     padding: 25px;
     gap: 20px;
     box-shadow: 0px 12px 30px rgba(0, 0, 0, .15);
-    max-width: none;
-    min-height: 50svh;
     flex: 0 0 100%;
+    width: 100%;
     scroll-snap-align: center;
-    opacity: 0.8;
+    opacity: 0.5;
 }
 
 .reviewCard.active {
@@ -855,14 +862,21 @@ body {
     }
 
     .ctaWhatsappHero {
-        font-size: 1rem;
+        font-size: 1.15rem;
     }
     .ctaCheckatradeHero{
-        font-size: 1rem;
+        font-size: 1.15rem;
     }
 
+    .serviceTitle1{
+        font-size: 0.7rem;
+    }
 
-    
+    .serviceTitle2 {
+        font-size: 0.8rem;
+    }
+
+  
 }
 
 
@@ -873,11 +887,11 @@ body {
     }
 
     .ctaCheckatradeHero {
-        max-width: 55%;
+        max-width: 61%;
     }
 
     .ctaWhatsappHero {
-        max-width: 40%;
+        max-width: 42%;
     }
 
 }
@@ -885,11 +899,11 @@ body {
 
 @media (min-width: 425px) {
     .ctaCheckatradeHero {
-        max-width: 50%;
+        max-width: 54%;
     }
 
     .ctaWhatsappHero{
-        max-width: 35%;
+        max-width: 38%;
     }
 }
 
@@ -906,11 +920,12 @@ body {
         padding-top: 100px;
     }
 
-    .hero_title1{
-        font-size: 2rem;
+    .hero_title1 {
+        font-size: 1.2rem;
     }
-    .hero_title2{
-        font-size: 3rem;
+
+    .hero_title2 {
+        font-size: 2rem;
     }
 
     .hero_p {
@@ -931,13 +946,13 @@ body {
     }
 
     .ctaCheckatradeHero {
-        max-width: 38%;
+        max-width: 37%;
         font-size: 1.5rem;
     }
 
     .ctaWhatsappHero {
         font-size: 1.5rem;
-        max-width: 30%;
+        max-width: 25%;
     }
 
     .navbar_buttons {
@@ -946,9 +961,30 @@ body {
         margin-top: 5px;
     }
 
+    .hero_bg img {
+    margin-top: 10px;
+    width: 100%;
+    
+    }
+
+    .hero_page {
+        max-height: 745px;
+
+    }
 }
 
+
 @media (min-width: 1024px) {
+
+    .hero_page {
+        max-height: 745px;
+    }
+
+    .hero_bg img {
+        height: 900px;
+    }
+
+
     .burger {
         display: none;
     }
@@ -961,7 +997,7 @@ body {
         position: absolute;
         width: max-content;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-42%);
         display: flex;
         flex-direction: row;
         background-color: transparent;
@@ -986,6 +1022,35 @@ body {
         
     }
 
+    .ctaCheckatradeHero {
+        width: 27.5%;
+    }
+
+    .ctaWhatsappHero {
+        width: 18.5%;
+    }
+
+}
+
+@media (min-width: 1440px) {
+    .hero_page {
+        max-height: 745px;
+    }
 
 
+    .hero_bg img {
+        height: 1000px;
+    }
+    .ctaCheckatradeHero {
+        width: 19.5%;
+    }
+
+    .ctaWhatsappHero {
+        width: 13%;
+    }
+
+    .skill_ticks {
+        max-width: 500px;
+
+    }
 }

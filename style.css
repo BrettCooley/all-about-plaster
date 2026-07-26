@@ -472,8 +472,6 @@ body {
     left: 50%;
     transform: translateX(-50%);
     bottom: -50px;
-
-    
 }
 
 
@@ -845,6 +843,104 @@ body {
 
 .reviewDots span:hover {
     cursor: pointer;
+}
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 600px;
+    width: 90%;
+}
+
+.contactTitles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 25px;
+}
+
+.contactTitle1 {
+    color: var(--primary-yellow);
+    font-size: 0.8rem;
+}
+
+.contactP {
+    color: var(--white);
+    font-size: 0.7rem;
+    padding-top: 15px;
+    max-width: 40ch;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.formRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--primary-black);
+    gap: 5px;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.formRow label {
+    width: 100%;
+}
+
+input:not([type="checkbox"]) {
+    color: var(--primary-yellow);
+    width: 100%;
+    padding: 5px;
+    background-color: transparent;
+    border: 1px solid var(--white);
+}
+
+textarea {
+    color: var(--primary-yellow);
+    width: 100%;
+    padding: 5px;
+    background-color: transparent;
+    border: 1px solid var(--white);
+}
+
+label {
+    
+}
+
+.servicesNeeded {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5px;
+    margin: 0;
+}
+
+.servicesNeeded label {
+    display: flex;
+    gap: 5px;
+    color: #757575;
+    font-weight: 200;
+    font-size: 0.8rem;
+}
+
+.servicesNeeded input[type="checkbox"] {
+    accent-color: var(--primary-yellow);
+
+}
+
+.contactButton {
+    background-color: var(--primary-yellow);
+    width: 100%;
+}
+
+.contactButton h3 {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-weight: 600;
 }
 
 

@@ -1,4 +1,4 @@
-const beforeAndAfterTrack = document.querySelector(".beforeAndAfterTrack");
+const beforeAfterWindow = document.querySelector(".beforeAndAfterWindow");
 const beforeAndAfterCards = document.querySelectorAll(".beforeAndAfterCards");
 
 const beforeAndAfterPrev = document.querySelector(".beforeAndAfterPrev");
@@ -9,7 +9,13 @@ let currentslide = 0
 let autoSlideChange;
 
 
-const updateCarousel = () => {
-    beforeAndAfterTrack.style.transform =
-    translateX'(-${currentslide * 100}%)';
-    
+const CardWidth = beforeAndAfterCards[0].offsetwidth;
+const gap = 20
+
+beforeAndAfteWindow.scrollto({
+    left: currentslide * (CardWidth, gap),
+    behavior = "smooth"
+});
+
+
+beforeAndAfterProgressBar.style.width =

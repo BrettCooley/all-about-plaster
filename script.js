@@ -37,7 +37,47 @@ const observer = new IntersectionObserver((entries) => {
     });
 
 
+const sendBtn = document.querySelector("#sendBtn");
 
+sendBtn.addEventListener("click", function(event) {
+    const fullName = document.querySelector("#fullName").value.trim();
+    const email = document.querySelector("#email").value.trim();
+    const phone = document.querySelector("#phone").value.trim();
+    const message = document.querySelector("#message").value.trim();
+
+    const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneCheck = /^[0-9+\s()-]{10,15}$/;
+
+    if (fullName === "") {
+        event.preventDefault();
+        alert("Please enter your full name");
+        return;
+    }
+
+    if (email === "") {
+        event.preventDefault();
+        alert("Email address is required");
+        return;
+    }
+
+    if (!emailCheck.test(email)) {
+        event.preventDefault();
+        alert("Please enter a valid email address");
+        return;
+    }
+
+    if (phone !== "" && !phoneCheck.test(phone)) {
+        event.preventDefault();
+        alert("Please enter a valid phone number");
+        return;
+    }
+
+    if (message === "") {
+        event.preventDefault();
+        alert("Message is required");
+        return;
+    }
+});
 
 
 

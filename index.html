@@ -467,7 +467,7 @@
         </div>
     </section>
 
-    <section class="contactPage" id="contact">
+    <section class="contactPage hidden" id="contact">
         <div class="contactBg"><img src="./images/contactFormBg.webp"></div>
         <div class="contactContainer container">
             <div class="contactTitles">
@@ -481,13 +481,16 @@
             </div>
 
             <form class="contactForm">
+                <form name="contact" method="POST" data-netlify="true" netlify>
+                <input type="hidden" name="form-name" value="contact">
                 <div class="formRow">
-                    <label><input type="text" name="fullName" placeholder="Full Name" required>
+                    <label><input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
                     </label>
-                    <label><input type="tel" name="phone" placeholder="Phone Nunber"></label>
+                    <label><input type="tel" id="phone" name="phone" placeholder="Phone Nunber"></label>
                 </div>
 
-                <label><input type="text" name="Email" placeholder="Email" required></label>
+                <label><input type="text" id="email" name="Email" placeholder="Email" required></label>
+
                 <div class="servicesNeeded"><h3>What services do you need?</h3>
                     <label><input name="rendering" type="checkbox">Rendering</label>
                     <label><input type="checkbox" name="skimming">Skimming</label>
@@ -497,11 +500,11 @@
                     <label><input type="checkbox" name="Plasterboarding">Plasterboarding</label>
                 </div>
 
-                <label><textarea name="message" 
+                <label><textarea id="message" name="message" 
                     placeholder="Tell us more about your project..." required></textarea>
 
 
-                <button class="contactButton">
+                <button type="submit" id="sendBtn" class="contactButton">
                     <h3>SEND MESSAGE</h3>
                 </button>
             </form>
@@ -568,7 +571,7 @@
                 <a class="checkaTradeFooter" href="https://www.checkatrade.com/trades/allaboutplaster">
                     <img src="./images/yellow checkatrade footer.webp" alt="">
                 </a>
-                <a class="footerLogo" href="home">
+                <a class="footerLogo" href="#home">
                     <img src="./images/Plastering Logo.webp" alt="">
                 </a>
             </div>

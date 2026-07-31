@@ -49,10 +49,11 @@ body {
 
 /*--------------------------------------HEADER SECTION--------------------------------------*/
 
+
+
 .header_page {
     background-color: var(--primary-black);
     padding-top: 30px;
-   
 }
 
 .header_container {
@@ -60,6 +61,17 @@ body {
     padding: 10px 0px;
 }
 
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.hidden.show {
+    opacity: 1;
+    transform: translateY(0px);
+}
 
 /*-------------------------------------------NAV SECTION-----------------------------------*/
 
@@ -133,12 +145,14 @@ body {
     padding: 10px 0px;
     gap: 10px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    pointer-events: none;
 
 }
 
 .navbar_buttons.show {
     opacity: 1;
     transform: translateY(135px);
+    pointer-events: auto;
 }
 
 .navbar_button {
@@ -605,6 +619,7 @@ body {
     z-index: 2;
     position: absolute;
     align-items: center;
+    justify-content: center;
     right: -10px;
     top: 50%;
     border-radius: 50px;
@@ -612,6 +627,8 @@ body {
     color: var(--primary-yellow);
     background-color: var(--primary-black);
     border: 1px solid var(--primary-yellow);
+    line-height: 1;
+    margin: 0;
 }
 
 .beforeAndAfterNextArrow:hover {
@@ -635,6 +652,8 @@ body {
     color: var(--primary-yellow);
     background-color: var(--primary-black);
     border: 1px solid var(--primary-yellow);
+    line-height: 1;
+    margin: 0;
 }
 
 .beforeAndAfterPrevArrow:hover {
@@ -774,6 +793,9 @@ body {
     color: var(--primary-yellow);
     background-color: var(--primary-black);
     border: 1px solid var(--primary-yellow);
+    justify-content: center;
+    line-height: 1;
+    margin: 0;
 }
 
 .reviewNextButton {
@@ -783,6 +805,8 @@ body {
     z-index: 2;
     position: absolute;
     align-items: center;
+    justify-content: center;
+    line-height: 1;
     right: -10px;
     top: 50%;
     transform: translateY(-50%);
@@ -1442,6 +1466,11 @@ input:focus {
         margin-top: 5px;
     }
 
+    .navbar_buttons.show {
+    opacity: 1;
+    transform: translateY(128px);
+}
+
     .hero_bg img {
     margin-top: 10px;
     width: 100%;
@@ -1490,8 +1519,13 @@ input:focus {
 
 @media (min-width: 1024px) {
 
+    .header_page {
+        padding-top: 0;
+    }
+
     .hero_page {
         max-height: 745px;
+       
     }
 
     .hero_bg img {
@@ -1590,6 +1624,11 @@ input:focus {
         grid-row: 1;
     }
 
+     .fixedBar {
+        position: static;
+        padding: 0;
+     }
+   
 }
 
 @media (min-width: 1440px) {

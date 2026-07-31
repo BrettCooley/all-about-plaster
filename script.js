@@ -7,7 +7,39 @@ burger.addEventListener("click", () => {
 burger.classList.toggle("show");
 nav.classList.toggle("show");
 
+const burgerLinks = document.querySelectorAll(".navbar_button")
+
+burgerLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+        burger.classList.remove("show");
+        nav.classList.remove("show");
+
+    });
 });
+
+});
+
+
+/*-----------------------Observer------------------------------------- */
+
+
+const hiddenelements = document.querySelectorAll(".hidden")
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add("show");
+        };
+    });
+});
+        hiddenelements.forEach((element) => {
+            observer.observe(element);
+    });
+
+
+
+
+
 
 
 /*-----------------------BEFOREAFTERCAROUSEL--------------------------*/

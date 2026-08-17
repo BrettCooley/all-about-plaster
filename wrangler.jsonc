@@ -6,7 +6,7 @@
     "assets": {
         "directory": "./public",
         "binding": "ASSETS"
-    }
+    },
 
     "send_email": [
         {

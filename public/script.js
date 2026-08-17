@@ -37,9 +37,12 @@ const observer = new IntersectionObserver((entries) => {
     });
 
 
-const sendBtn = document.querySelector("#sendBtn");
+const contactForm = document.querySelector("#contactForm");
 
-sendBtn.addEventListener("click", function(event) {
+contactForm.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
     const fullName = document.querySelector("#fullName").value.trim();
     const email = document.querySelector("#email").value.trim();
     const phone = document.querySelector("#phone").value.trim();
@@ -48,37 +51,100 @@ sendBtn.addEventListener("click", function(event) {
     const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneCheck = /^[0-9+\s()-]{10,15}$/;
 
+
+    /* VALIDATION */
+
     if (fullName === "") {
-        event.preventDefault();
         alert("Please enter your full name");
         return;
     }
 
     if (email === "") {
-        event.preventDefault();
         alert("Email address is required");
         return;
     }
 
     if (!emailCheck.test(email)) {
-        event.preventDefault();
         alert("Please enter a valid email address");
         return;
     }
 
     if (phone !== "" && !phoneCheck.test(phone)) {
-        event.preventDefault();
         alert("Please enter a valid phone number");
         return;
     }
 
     if (message === "") {
-        event.preventDefault();
         alert("Message is required");
         return;
     }
-});
 
+
+    /* GET SELECTED SERVICES */
+
+    const selectedServices = [];
+
+    const serviceCheckboxes =
+        document.querySelectorAll(".servicesNeeded input[type='checkbox']");
+
+    serviceCheckboxes.forEach((checkbox) => {
+
+        if (checkbox.checked) {
+            selectedServices.push(checkbox.name);
+        }
+
+    });
+
+
+    /* CREATE FORM DATA */
+
+    const formData = {
+        fullName: fullName,
+        email: email,
+        phone: phone,
+        message: message,
+        services: selectedServices
+    };
+
+
+    /* SEND TO CLOUDFLARE WORKER */
+
+    try {
+
+        const response = await fetch("/contact", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(formData)
+
+        });
+
+
+        if (response.ok) {
+
+            alert("Thanks! Your message has been sent.");
+
+            contactForm.reset();
+
+        } else {
+
+            alert("Sorry, something went wrong. Please try again.");
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Sorry, something went wrong. Please try again.");
+
+    }
+
+});
 
 
 

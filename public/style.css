@@ -1100,6 +1100,10 @@ label {
     font-size: 0.6rem;
 }
 
+.contactButton:hover {
+    transform: scale(1.01);
+}
+
 .contactButton h3 {
     display: flex;
     text-align: center;

@@ -95,6 +95,7 @@ body {
     width: 95%;
     align-items: center;
     position: relative;
+    z-index: 1050;
 } 
 
 .plaster_logo img {
@@ -1558,6 +1559,8 @@ input:focus {
         justify-content: center;
         gap: 28px;
         white-space: nowrap;
+
+        pointer-events: auto;
     }
 
     .navbar_buttons.show {

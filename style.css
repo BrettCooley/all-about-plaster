@@ -51,6 +51,10 @@ body {
 
 
 
+.hero_bg picture {
+    display: block;
+}
+
 .header_page {
     background-color: var(--primary-black);
     padding-top: 30px;

@@ -7,4 +7,13 @@
         "directory": "./public",
         "binding": "ASSETS"
     }
+
+    "send_email": [
+        {
+            "name": "SEND_EMAIL",
+            "destination_address": "allaboutplasterservices@gmail.com"
+        }
+    ]
 }
+
+
